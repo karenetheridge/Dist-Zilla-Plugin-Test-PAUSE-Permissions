@@ -1,0 +1,4 @@
+/.build/
+!.gitignore
+/Dist-Zilla-Plugin-Test-PAUSE-Permissions-*/
+/Dist-Zilla-Plugin-Test-PAUSE-Permissions-*.tar.gz
