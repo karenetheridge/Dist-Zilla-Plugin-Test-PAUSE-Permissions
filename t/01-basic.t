@@ -9,6 +9,9 @@ use Path::Tiny;
 use Safe::Isa;
 use File::pushd 'pushd';
 
+# ensure this loads, as well as getting prereqs autodetected
+use Test::PAUSE::Permissions ();
+
 {
     my $tzil = Builder->from_config(
         { dist_root => 't/does-not-exist' },
