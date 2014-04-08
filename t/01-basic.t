@@ -3,8 +3,10 @@ use warnings FATAL => 'all';
 
 use Test::More;
 use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
+use Test::Warnings 0.005 ':no_end_test', ':all';
 use Test::DZil;
 use Path::Tiny;
+use Safe::Isa;
 use File::pushd 'pushd';
 
 {
@@ -38,8 +40,10 @@ use File::pushd 'pushd';
 
         # ensure we don't call out to the network when running the test
         local $ENV{RELEASE_TESTING};
+        allow_warnings(1);
         do $file;
-        warn $@ if $@;
+        allow_warnings(0);
+        warn $@ if $@ and not $@->$_isa('Test::Builder::Exception');
     };
 }
 
@@ -68,4 +72,5 @@ use File::pushd 'pushd';
     like($content, qr/^all_permissions_ok\(\);$/m, 'no username passed to test');
 }
 
+had_no_warnings if $ENV{AUTHOR_TESTING};
 done_testing;
