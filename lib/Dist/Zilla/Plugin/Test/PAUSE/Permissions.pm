@@ -86,6 +86,8 @@ This is a L<Dist::Zilla> plugin that runs at the
 L<gather files|Dist::Zilla::Role::FileGatherer> stage, providing a
 L<Test::PAUSE::Permisisons> test, named F<xt/release/pause-permissions.t>).
 
+=for Pod::Coverage filename gather_files register_prereqs
+
 =head1 SUPPORT
 
 =for stopwords irc
