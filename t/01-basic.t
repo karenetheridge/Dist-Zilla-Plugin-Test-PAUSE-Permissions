@@ -26,6 +26,8 @@ use Test::PAUSE::Permissions ();
             },
         },
     );
+
+    $tzil->chrome->logger->set_debug(1);
     $tzil->build;
 
     my $build_dir = path($tzil->tempdir)->child('build');
@@ -48,6 +50,9 @@ use Test::PAUSE::Permissions ();
         allow_warnings(0);
         warn $@ if $@ and not $@->$_isa('Test::Builder::Exception');
     };
+
+    diag 'got log messages: ', explain $tzil->log_messages
+        if not Test::Builder->new->is_passing;
 }
 
 {
@@ -63,6 +68,8 @@ use Test::PAUSE::Permissions ();
             },
         },
     );
+
+    $tzil->chrome->logger->set_debug(1);
     $tzil->build;
 
     my $build_dir = path($tzil->tempdir)->child('build');
@@ -73,6 +80,9 @@ use Test::PAUSE::Permissions ();
     unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated test');
 
     like($content, qr/^all_permissions_ok\(\);$/m, 'no username passed to test');
+
+    diag 'got log messages: ', explain $tzil->log_messages
+        if not Test::Builder->new->is_passing;
 }
 
 had_no_warnings if $ENV{AUTHOR_TESTING};
