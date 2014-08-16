@@ -2,6 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::Test::PAUSE::Permissions;
 # ABSTRACT: Generate a test to verify PAUSE permissions
+# KEYWORDS: plugin test author PAUSE permissions
 # vim: set ts=8 sw=4 tw=78 et :
 
 use Moose;
