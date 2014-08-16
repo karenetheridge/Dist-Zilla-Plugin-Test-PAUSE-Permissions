@@ -48,7 +48,8 @@ use Test::PAUSE::Permissions ();
         allow_warnings(1);
         do $file;
         allow_warnings(0);
-        warn $@ if $@ and not $@->$_isa('Test::Builder::Exception');
+        note 'ran tests successfully' if not $@;
+        fail($@) if $@ and not $@->$_isa('Test::Builder::Exception');
     };
 
     diag 'got log messages: ', explain $tzil->log_messages
