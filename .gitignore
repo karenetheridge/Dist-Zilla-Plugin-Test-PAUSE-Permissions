@@ -1,4 +1,6 @@
+/.ackrc
 /.build/
-!.gitignore
+!/.gitignore
+/.latest
 /Dist-Zilla-Plugin-Test-PAUSE-Permissions-*/
 /Dist-Zilla-Plugin-Test-PAUSE-Permissions-*.tar.gz
