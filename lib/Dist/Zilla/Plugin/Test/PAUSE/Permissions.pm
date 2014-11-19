@@ -58,7 +58,10 @@ use warnings;
 
 # this test was generated with {{ ref($plugin) . ' ' . ($plugin->VERSION || '<self>') }}
 
-use Test::PAUSE::Permissions;
+eval 'use Test::PAUSE::Permissions';
+plan skip_all => 'Test::PAUSE::Permissions required for testing pause permissions'
+  if $@;
+
 all_permissions_ok({{ $username ? qq{'$username'} : '' }});
 TEST
             {
