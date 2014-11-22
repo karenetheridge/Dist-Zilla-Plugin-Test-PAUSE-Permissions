@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.002     2014-11-22 20:17:39Z
           - skip running test when perl is older than 5.10,
             where PAUSE::Permissions does not install
 

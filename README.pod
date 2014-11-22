@@ -1,0 +1,62 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Dist::Zilla::Plugin::Test::PAUSE::Permissions - Generate a test to verify PAUSE permissions
+
+=head1 VERSION
+
+version 0.002
+
+=head1 SYNOPSIS
+
+In your F<dist.ini>:
+
+    [Test::PAUSE::Permissions]
+
+=head1 DESCRIPTION
+
+This is a L<Dist::Zilla> plugin that runs at the
+L<gather files|Dist::Zilla::Role::FileGatherer> stage, providing a
+L<Test::PAUSE::Permisisons> test, named F<xt/release/pause-permissions.t>).
+
+=for Pod::Coverage filename gather_files register_prereqs
+
+=head1 SUPPORT
+
+=for stopwords irc
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-Test-PAUSE-Permissions>
+(or L<bug-Dist-Zilla-Plugin-Test-PAUSE-Permissions@rt.cpan.org|mailto:bug-Dist-Zilla-Plugin-Test-PAUSE-Permissions@rt.cpan.org>).
+I am also usually active on irc, as 'ether' at C<irc.perl.org>.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+
+L<Test::PAUSE::Permisisons>
+
+=back
+
+=head1 AUTHOR
+
+Karen Etheridge <ether@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2014 by Karen Etheridge.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=head1 CONTRIBUTOR
+
+=for stopwords Harley Pig
+
+Harley Pig <harleypig@gmail.com>
+
+=cut
