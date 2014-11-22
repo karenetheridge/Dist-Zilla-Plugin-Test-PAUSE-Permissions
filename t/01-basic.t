@@ -47,17 +47,9 @@ use Test::PAUSE::Permissions ();
         allow_warnings(1);
         do $file;
         allow_warnings(0);
-        if ($@)
-        {
-            die $@ if $@->$_isa('Test::Builder::Exception');
-            fail('got exception');
-            local $Data::Dumper::Maxdepth = 2;
-            diag explain $@;
-        }
-        else
-        {
-            note 'ran tests successfully';
-        }
+        # it would be better if we could rethrow exceptions used for test flow
+        # control and fail and dump the remainder, rather than dying
+        die $@ if $@;
     };
 
     diag 'got log messages: ', explain $tzil->log_messages
