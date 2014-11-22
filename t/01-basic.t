@@ -47,8 +47,9 @@ use Test::PAUSE::Permissions ();
         allow_warnings(1);
         do $file;
         allow_warnings(0);
-        note 'ran tests successfully' if not $@;
-        fail($@) if $@ and not $@->$_isa('Test::Builder::Exception');
+        note 'ran tests successfully', return if not $@;
+        fail('got exception'), local $Data::Dumper::Maxdepth = 2, diag explain $@
+            if not $@->$_isa('Test::Builder::Exception');
     };
 
     diag 'got log messages: ', explain $tzil->log_messages
