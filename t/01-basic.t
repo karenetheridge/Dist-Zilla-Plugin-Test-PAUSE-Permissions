@@ -48,8 +48,9 @@ use Test::PAUSE::Permissions ();
         do $file;
         allow_warnings(0);
         note 'ran tests successfully', return if not $@;
-        fail('got exception'), local $Data::Dumper::Maxdepth = 2, diag explain $@
-            if not $@->$_isa('Test::Builder::Exception');
+        # FIXME: it looks like newer Test::More alphas use a different class now
+        die $@ if $@->$_isa('Test::Builder::Exception');
+        fail('got exception'), local $Data::Dumper::Maxdepth = 2, diag explain $@;
     };
 
     diag 'got log messages: ', explain $tzil->log_messages
