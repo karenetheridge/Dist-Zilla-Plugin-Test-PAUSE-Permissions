@@ -2,7 +2,7 @@ use strict;
 use warnings FATAL => 'all';
 
 use Test::More;
-use Test::Warnings 0.009 ':no_end_test', ':all';
+use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
 use Test::DZil;
 use Path::Tiny;
 use Safe::Isa;
@@ -38,20 +38,21 @@ use Test::PAUSE::Permissions ();
 
     like($content, qr/^all_permissions_ok\('username'\);$/m, 'username extracted from stash and passed to test');
 
+    my $error;
     subtest 'run the generated test' => sub
     {
         my $wd = pushd $build_dir;
 
         # ensure we don't call out to the network when running the test
         local $ENV{RELEASE_TESTING};
-        allow_warnings(1);
-        do $file;
-        allow_warnings(0);
-        note 'ran tests successfully', return if not $@;
-        # FIXME: it looks like newer Test::More alphas use a different class now
-        die $@ if $@->$_isa('Test::Builder::Exception');
-        fail('got exception'), local $Data::Dumper::Maxdepth = 2, diag explain $@;
+
+        my $test = eval 'sub { ' . $file->slurp_utf8 . ' }';
+        return $error = $@ if $@;
+        $test->();
+        note 'ran tests successfully';
     };
+
+    fail('failed to compile test file') and diag(explain($error)) if $error;
 
     diag 'got log messages: ', explain $tzil->log_messages
         if not Test::Builder->new->is_passing;
@@ -87,5 +88,4 @@ use Test::PAUSE::Permissions ();
         if not Test::Builder->new->is_passing;
 }
 
-had_no_warnings if $ENV{AUTHOR_TESTING};
 done_testing;
