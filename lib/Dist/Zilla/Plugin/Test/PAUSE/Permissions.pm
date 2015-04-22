@@ -93,7 +93,7 @@ In your F<dist.ini>:
 
 This is a L<Dist::Zilla> plugin that runs at the
 L<gather files|Dist::Zilla::Role::FileGatherer> stage, providing a
-L<Test::PAUSE::Permisisons> test, named F<xt/release/pause-permissions.t>).
+L<Test::PAUSE::Permissions> test, named F<xt/release/pause-permissions.t>).
 
 =for Pod::Coverage filename gather_files register_prereqs
 
@@ -108,6 +108,6 @@ I am also usually active on irc, as 'ether' at C<irc.perl.org>.
 =head1 SEE ALSO
 
 =for :list
-* L<Test::PAUSE::Permisisons>
+* L<Test::PAUSE::Permissions>
 
 =cut
