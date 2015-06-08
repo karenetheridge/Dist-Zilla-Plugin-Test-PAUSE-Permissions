@@ -5,6 +5,8 @@ package Dist::Zilla::Plugin::Test::PAUSE::Permissions;
 # KEYWORDS: plugin test author PAUSE permissions
 # vim: set ts=8 sw=4 tw=78 et :
 
+our $VERSION = '0.003';
+
 use Moose;
 with (
     'Dist::Zilla::Role::FileGatherer',
@@ -56,7 +58,7 @@ sub gather_files
 use strict;
 use warnings;
 
-# this test was generated with {{ ref($plugin) . ' ' . ($plugin->VERSION || '<self>') }}
+# this test was generated with {{ ref($plugin) . ' ' . $plugin->VERSION }}
 
 use Test::More;
 BEGIN {
