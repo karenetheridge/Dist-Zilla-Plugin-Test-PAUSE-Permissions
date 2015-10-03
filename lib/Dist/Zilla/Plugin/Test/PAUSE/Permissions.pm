@@ -33,6 +33,19 @@ has username => (
     },
 );
 
+around dump_config => sub
+{
+    my ($orig, $self) = @_;
+    my $config = $self->$orig;
+
+    my $data = {
+        blessed($self) ne __PACKAGE__ ? ( version => $VERSION ) : (),
+    };
+    $config->{+__PACKAGE__} = $data if keys %$data;
+
+    return $config;
+};
+
 sub register_prereqs
 {
     my $self = shift;
