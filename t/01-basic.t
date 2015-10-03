@@ -34,7 +34,7 @@ use Test::PAUSE::Permissions ();
     ok(-e $file, 'test created');
 
     my $content = $file->slurp_utf8;
-    unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated test');
+    unlike($content, qr/[^\S\n]\n/, 'no trailing whitespace in generated test');
 
     like($content, qr/^all_permissions_ok\('username'\);$/m, 'username extracted from stash and passed to test');
 
