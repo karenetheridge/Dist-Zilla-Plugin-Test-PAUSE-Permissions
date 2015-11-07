@@ -71,7 +71,7 @@ sub gather_files
 use strict;
 use warnings;
 
-# this test was generated with {{ ref($plugin) . ' ' . $plugin->VERSION }}
+# this test was generated with {{ ref $plugin }} {{ $plugin->VERSION }}
 
 use Test::More;
 BEGIN {
