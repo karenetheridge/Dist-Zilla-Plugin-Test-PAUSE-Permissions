@@ -52,8 +52,8 @@ sub register_prereqs
 
     $self->zilla->register_prereqs(
         {
-            type  => 'requires',
             phase => 'develop',
+            type  => 'requires',
         },
         'Test::PAUSE::Permissions' => '0',
     );
