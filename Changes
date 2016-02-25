@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-Plugin-Test-PAUSE-Permissions
 
 {{$NEXT}}
+          - misc tooling and documentation tweaks
 
 0.002     2014-11-22 20:17:39Z
           - skip running test when perl is older than 5.10,
