@@ -5,7 +5,7 @@ package Dist::Zilla::Plugin::Test::PAUSE::Permissions;
 # ABSTRACT: Generate a test to verify PAUSE permissions
 # KEYWORDS: plugin test author PAUSE permissions
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 
 use Moose;
 with (

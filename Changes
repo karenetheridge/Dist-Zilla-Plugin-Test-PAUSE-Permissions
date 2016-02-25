@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-Plugin-Test-PAUSE-Permissions
 
+{{$NEXT}}
+
 0.003     2016-02-25 21:33:16Z
           - misc tooling and documentation tweaks
 
