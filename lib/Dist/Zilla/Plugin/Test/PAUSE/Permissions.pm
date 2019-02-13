@@ -1,7 +1,7 @@
-# vim: set ts=8 sts=4 sw=4 tw=115 et :
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::Test::PAUSE::Permissions;
+# vim: set ts=8 sts=4 sw=4 tw=115 et :
 # ABSTRACT: Generate a test to verify PAUSE permissions
 # KEYWORDS: plugin test author PAUSE permissions
 
