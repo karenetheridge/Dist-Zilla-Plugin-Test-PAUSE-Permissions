@@ -76,7 +76,7 @@ use warnings;
 use Test::More;
 BEGIN {
     plan skip_all => 'Test::PAUSE::Permissions required for testing pause permissions'
-        if $] < 5.010;
+        if "$]" < 5.010;
 }
 use Test::PAUSE::Permissions;
 
